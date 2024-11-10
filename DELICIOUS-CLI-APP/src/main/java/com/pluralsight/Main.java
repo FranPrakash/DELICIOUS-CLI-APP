@@ -18,13 +18,20 @@ public class Main {
         switch (choice) {
             case 1: //TODO: call a method to create an order
                 System.out.println("New order Selected");
+                newOrder();
                 break;
             case 0 : return;
             default:
                 System.out.println("Invalid Choice");
-
+//TODO: find a way to loop home screen to go back to home screen
         }
     }
+
+    public static void newOrder(){
+        Order myOrder = new Order();
+
+    }
+
 
 
 

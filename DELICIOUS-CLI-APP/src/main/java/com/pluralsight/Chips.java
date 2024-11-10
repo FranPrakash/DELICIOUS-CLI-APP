@@ -4,23 +4,14 @@ package com.pluralsight;
 public class Chips implements OrderItems {
     //Properties
     String type;
-    String brand;
+
 
     //Constructor
-    public Chips(String brand, String type) {
-        this.brand = brand;
+    public Chips(String type) {
         this.type = type;
     }
 
     //Getters and Setters
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getType() {
         return type;
     }
@@ -32,6 +23,9 @@ public class Chips implements OrderItems {
     //Override method from OrderItems interface
     @Override
     public double getPrice() {
-        return 0;
+        return 1.50; //Returning chip final price
     }
 }
+
+
+//Can a method be final ?

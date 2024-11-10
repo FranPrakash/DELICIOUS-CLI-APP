@@ -2,29 +2,20 @@ package com.pluralsight;
 
 //Implementing the interface OrderItems
 
-public class Drinks implements OrderItems{
+public class Drink implements OrderItems{
 
     //Properties
-    int size;
+    String size;
     String flavor;
-    String brand;
+
 
     //Constructor
-    public Drinks(String brand, String flavor, int size) {
-        this.brand = brand;
+    public Drink(String flavor,  String  size) {
         this.flavor = flavor;
         this.size = size;
     }
 
     //Getters and Setters
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getFlavor() {
         return flavor;
     }
@@ -33,11 +24,11 @@ public class Drinks implements OrderItems{
         this.flavor = flavor;
     }
 
-    public int getSize() {
+    public  String  getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize( String  size) {
         this.size = size;
     }
 
