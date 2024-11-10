@@ -7,9 +7,20 @@ public class Sandwich implements OrderItems {
     //Properties
     private String breadType;
     private int size;
-    private String sauces;
-    boolean isToasted;
-    //arraylist<Topping>
+    private String side;
+    private boolean isToasted;
+    private ArrayList<Topping> sandwichToppings; //Array list to store toppings
+
+    //Constructor
+    public Sandwich(String breadType, boolean isToasted, String side, int size) {
+        this.breadType = breadType;
+        this.isToasted = isToasted;
+        this.sandwichToppings = new ArrayList<Topping>(); //Initializing Sand.Topping as an empty list
+        this.side = side;
+        this.size = size;
+    }
+
+    //TODO: add getters and setters
 
     //Override method from orderItems interface
     @Override

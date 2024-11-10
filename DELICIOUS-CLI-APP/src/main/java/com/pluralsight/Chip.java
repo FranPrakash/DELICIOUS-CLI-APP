@@ -1,13 +1,13 @@
 package com.pluralsight;
 
 //Implementing the interface OrderItems
-public class Chips implements OrderItems {
+public class Chip implements OrderItems {
     //Properties
     String type;
 
 
     //Constructor
-    public Chips(String type) {
+    public Chip(String type) {
         this.type = type;
     }
 
