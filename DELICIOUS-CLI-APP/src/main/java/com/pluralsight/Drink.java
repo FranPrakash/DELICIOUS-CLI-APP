@@ -38,4 +38,12 @@ public class Drink implements OrderItems{
         return 0;
         //TODO implement this method
     }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "flavor='" + flavor + '\'' +
+                ", size='" + size + '\'' +
+                '}';
+    }
 }

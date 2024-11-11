@@ -6,10 +6,10 @@ import java.util.Scanner;
 // Class to store the content of the order
 public class Order {
     //Array list to store user items choice
-    private ArrayList<OrderItems> listOfItems;
+   public static ArrayList<OrderItems> listOfItems;
 
     public Order() {
-        this.listOfItems = new ArrayList<OrderItems>();
+        listOfItems = new ArrayList<OrderItems>();
     }
 
     //Created method so I can call it depends on the user choice
@@ -19,7 +19,7 @@ public class Order {
         System.out.println("What type of Bread do you want?");
         System.out.println("Available Options : white, wheat, rye, wrap");
         String breadType = myScanner.nextLine();
-        System.out.println("What Snadwich size do you want ? ");
+        System.out.println("What Sandwich size do you want ? ");
         System.out.println("Available Options : 4\", 8\", 12\"");
         int sandwichSize = myScanner.nextInt();
         myScanner.nextLine();
@@ -67,13 +67,27 @@ public class Order {
         listOfItems.add(myChip); //adding chips to list of items
     }
 
+    private static void checkOut() {
+        System.out.println(getOrderDetails()); //printing the order details by calling the method show order details
+        Scanner myScanner = new Scanner(System.in); //get the user input
+        System.out.println("Please type C to confirm the order or X to Cancel the Order");
+        String userChoice = myScanner.nextLine();
+        if (userChoice.equals("C")) {
+            confirmOrder(); //call the method confirmOrder to confirm the order which will print the receipt
+        } else {
+            listOfItems = null; //Making the list of items null
+            System.out.println("Order has been canceled");
+        }
 
 
    public void showOrderDetails(){
         //TODO: implement this method
    }
-
-
+//Osmig
+    @Override
+    public String toString() {
+        return "Order{"+ listOfItems.toString() + "}";
+    }
 }
 
 //TODO: Create a method called confirm order to print the order receipt and go back to home screen

@@ -18,4 +18,14 @@ public class Cheese extends Topping {
     public void setName(String name) {
         this.name = name;
     }
+
+    //osmig help
+    @Override
+    public String toString() {
+        return "Cheese{" +
+                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

@@ -25,6 +25,13 @@ public class Chip implements OrderItems {
     public double getPrice() {
         return 1.50; //Returning chip final price
     }
+
+    @Override
+    public String toString() {
+        return "Chip{" +
+                "type='" + type + '\'' +
+                '}';
+    }
 }
 
 

@@ -34,4 +34,14 @@ public class Sandwich implements OrderItems {
        // TODO: User choose extra topping
     }
 
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "breadType='" + breadType + '\'' +
+                ", size=" + size +
+                ", side='" + side + '\'' +
+                ", isToasted=" + isToasted +
+                ", sandwichToppings=" + sandwichToppings +
+                '}';
+    }
 }
