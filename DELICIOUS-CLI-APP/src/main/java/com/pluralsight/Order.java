@@ -67,9 +67,17 @@ public class Order {
         listOfItems.add(myChip); //adding chips to list of items
     }
 
-    public  void checkOut(){
 
-    }
+
+   public void showOrderDetails(){
+        //TODO: implement this method
+   }
 
 
 }
+
+//TODO: Create a method called confirm order to print the order receipt and go back to home screen
+//TODO:Create a method to display the total cost of the order.
+//TODO: When the customer completes the order, the order details should be saved to a
+// receipts folder. Each order should have it's own receipt file, and it should be
+// named by the date and time that the order was placed

@@ -7,5 +7,8 @@ public class Topping {
     String name;
     double price;
 
-
+public double getPrice(){
+    return 0;
+    //TODO: implement this method
+}
 }

@@ -26,10 +26,12 @@ public class Sandwich implements OrderItems {
     @Override
     public double getPrice() {
         return 0;
+        //TODO: implement this method
     }
 
     public void addTopping(){
-
+        //TODO: Implement this method
+       // TODO: User choose extra topping
     }
 
 }
