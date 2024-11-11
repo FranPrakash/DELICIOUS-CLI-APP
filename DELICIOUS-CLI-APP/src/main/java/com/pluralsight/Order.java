@@ -8,7 +8,11 @@ public class Order {
     //Array list to store user items choice
     private ArrayList<OrderItems> listOfItems;
 
-   //Created method so I can call it depends on the user choice
+    public Order() {
+        this.listOfItems = new ArrayList<OrderItems>();
+    }
+
+    //Created method so I can call it depends on the user choice
    //Method to add userSandwich choice to the order.
     public void addSandwich(){
         Scanner myScanner = new Scanner(System.in);
@@ -18,6 +22,7 @@ public class Order {
         System.out.println("What Snadwich size do you want ? ");
         System.out.println("Available Options : 4\", 8\", 12\"");
         int sandwichSize = myScanner.nextInt();
+        myScanner.nextLine();
         System.out.println("Do you want the Sandwich toasted? Type Y for Yes and N for no");
         String toastedChoice = myScanner.nextLine();
         boolean isToasted; //Using and if to convert from Y and N to true and false.Started by initiating the value to false
