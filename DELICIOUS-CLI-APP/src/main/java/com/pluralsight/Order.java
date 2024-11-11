@@ -1,6 +1,10 @@
 package com.pluralsight;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -84,18 +88,34 @@ public class Order {
     }
 
 
-    //Confirm - create the receipt file and go back to the home screen //Osmig help
-   /* public void confirmOrder() {
-        try {
-            FileWriter myFileWriter = new FileWriter(fileName);
-            myFileWriter.write(getOrderDetails()); //Return a string with all the details of the order
-            System.out.println("Order has been confirmed and receipt has been printed");
-            myFileWriter.close();
-        } catch (Exception e) {
-            System.out.println("An error occurred");
-            e.printStackTrace(); //Show the error
-        }
-    } */
+   //Method Confirm - create the receipt file and go back to the home screen //Osmig help
+    public static void confirmOrder(){
+        String date = String.valueOf(LocalDate.now());
+        String time = String.valueOf(LocalTime.now().truncatedTo(ChronoUnit.SECONDS)); // hhmmssml -> hhmmss (took away mlsecs)
+        // default format  yyyy-MM-dddd
+        System.out.println(date);
+        System.out.println(time);
+
+        date = date.replace("-", ""); // take - away
+        time = time.replace(":", ""); // take : away
+        // Capstone format  yyyyMMdddd
+        System.out.println(date);
+        // Capstone format  HHMMSS
+        System.out.println(time);
+        // yyyyMMdddd-HHMMSS.txt
+        System.out.println(date + "-" + time + ".txt");
+        String file = date + "-" + time + ".txt";// combining the way the capstone asked
+       try {
+           BufferedWriter bw = new BufferedWriter(new FileWriter("Receipt.csv")); // path where to write the file and file name
+
+           bw.write(file); // instead of writing the file name, pass in the receipt format
+           bw.close(); // needs to close after done
+       } catch (Exception e) {
+           System.out.println("An error occurred");
+           e.printStackTrace(); //Display error
+       }
+    }
+
 
     //This methods will have list of all items
     private String getOrderDetails() {

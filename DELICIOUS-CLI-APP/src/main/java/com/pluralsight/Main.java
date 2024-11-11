@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.pluralsight.Order.checkOut;
-
 public class Main {
     public static void main(String[] args) {
         showHomeScreen();
@@ -60,11 +58,11 @@ public class Main {
                     myOrder.addChips();
                     break;
                 case 4:
-                    checkOut();
+                    myOrder.checkOut();
                     showHomeScreen(); // calling home screen method because after user checkout go back to home screen
                     break;
-                case 0:
-                    System.out.println("Cancel order"); //TODO:find way to cancel order
+                case 0: myOrder = null; //Making my order object blank
+                    System.out.println("Your order has been canceled"); //TODO:find way to cancel order
                     showHomeScreen(); //calling the homeScreen method to take the user back to home page
                     break;
                 default:
