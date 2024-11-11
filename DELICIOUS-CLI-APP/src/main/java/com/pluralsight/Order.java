@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -79,6 +82,19 @@ public class Order {
             System.out.println("Order has been canceled");
         }
 
+
+        //Confirm - create the receipt file and go back to the home screen //Osmig help
+        public void confirmOrder(){
+            try {
+                FileWriter myFileWriter = new FileWriter(fileName);
+                myFileWriter.write(getOrderDetails()); //Return a string with all the details of the order
+                System.out.println("Order has been confirmed and receipt has been printed");
+                myFileWriter.close();
+            } catch (Exception e) {
+                System.out.println("An error occurred");
+                e.printStackTrace(); //Show the error
+            }
+        }
 
    public void showOrderDetails(){
         //TODO: implement this method
