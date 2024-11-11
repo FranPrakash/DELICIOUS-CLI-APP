@@ -1,23 +1,21 @@
 package com.pluralsight;
 
 import java.io.FileWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 // Class to store the content of the order
 public class Order {
     //Array list to store user items choice
-   public static ArrayList<OrderItems> listOfItems;
+    public static ArrayList<OrderItems> listOfItems;
 
     public Order() {
         listOfItems = new ArrayList<OrderItems>();
     }
 
     //Created method so I can call it depends on the user choice
-   //Method to add userSandwich choice to the order.
-    public void addSandwich(){
+    //Method to add userSandwich choice to the order.
+    public void addSandwich() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Bread do you want?");
         System.out.println("Available Options : white, wheat, rye, wrap");
@@ -29,9 +27,9 @@ public class Order {
         System.out.println("Do you want the Sandwich toasted? Type Y for Yes and N for no");
         String toastedChoice = myScanner.nextLine();
         boolean isToasted; //Using and if to convert from Y and N to true and false.Started by initiating the value to false
-        if(toastedChoice.equals("Y")){
+        if (toastedChoice.equals("Y")) {
             isToasted = true;
-        } else{
+        } else {
             isToasted = false;
         }
         System.out.println("What side do you want?");
@@ -47,7 +45,7 @@ public class Order {
 
     //Created method so I can call it depends on the user choice
     //Method to add user Drink choice.
-    public void addDrink(){
+    public void addDrink() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Drink do you want?");
         System.out.println("Available Options : Water, Coca-Cola, OrangeJuice, Lemonade, WatermelonJuice");
@@ -60,7 +58,7 @@ public class Order {
     }
 
     //Method to add Chip to order
-    public void addChips(){
+    public void addChips() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Chip do you want?");
         System.out.println("Available Options : Potatoes, Tapioca, DriedVeggie");
@@ -70,7 +68,7 @@ public class Order {
         listOfItems.add(myChip); //adding chips to list of items
     }
 
-    private static void checkOut() {
+    public void checkOut() {
         System.out.println(getOrderDetails()); //printing the order details by calling the method show order details
         Scanner myScanner = new Scanner(System.in); //get the user input
         System.out.println("Please type C to confirm the order or X to Cancel the Order");
@@ -81,30 +79,38 @@ public class Order {
             listOfItems = null; //Making the list of items null
             System.out.println("Order has been canceled");
         }
+        //display the order details and the price
+        //Cancel - delete order and go back to the home screen
+    }
 
 
-        //Confirm - create the receipt file and go back to the home screen //Osmig help
-        public void confirmOrder(){
-            try {
-                FileWriter myFileWriter = new FileWriter(fileName);
-                myFileWriter.write(getOrderDetails()); //Return a string with all the details of the order
-                System.out.println("Order has been confirmed and receipt has been printed");
-                myFileWriter.close();
-            } catch (Exception e) {
-                System.out.println("An error occurred");
-                e.printStackTrace(); //Show the error
-            }
+    //Confirm - create the receipt file and go back to the home screen //Osmig help
+   /* public void confirmOrder() {
+        try {
+            FileWriter myFileWriter = new FileWriter(fileName);
+            myFileWriter.write(getOrderDetails()); //Return a string with all the details of the order
+            System.out.println("Order has been confirmed and receipt has been printed");
+            myFileWriter.close();
+        } catch (Exception e) {
+            System.out.println("An error occurred");
+            e.printStackTrace(); //Show the error
         }
+    } */
 
-   public void showOrderDetails(){
+    //This methods will have list of all items
+    private String getOrderDetails() {
         //TODO: implement this method
-   }
-//Osmig
+        return "";
+    }
+
+
+    //Osmig
     @Override
     public String toString() {
-        return "Order{"+ listOfItems.toString() + "}";
+        return "Order{" + listOfItems.toString() + "}";
     }
 }
+
 
 //TODO: Create a method called confirm order to print the order receipt and go back to home screen
 //TODO:Create a method to display the total cost of the order.

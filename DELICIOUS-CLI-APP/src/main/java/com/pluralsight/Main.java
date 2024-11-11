@@ -64,7 +64,6 @@ public class Main {
                     showHomeScreen(); // calling home screen method because after user checkout go back to home screen
                     break;
                 case 0:
-                    CancelOrder.cancel(costumeOder);
                     System.out.println("Cancel order"); //TODO:find way to cancel order
                     showHomeScreen(); //calling the homeScreen method to take the user back to home page
                     break;
