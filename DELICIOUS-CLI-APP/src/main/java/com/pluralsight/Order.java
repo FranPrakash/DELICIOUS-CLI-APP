@@ -96,11 +96,11 @@ public class Order {
         time = time.replace(":", ""); // take : away
         // Capstone format  yyyyMMdddd-hhmmss.txt
 
-        String file = date + "-" + time + ".txt";// combining the way the capstone asked
+        String fileName = date + "-" + time + ".txt";// combining the way the capstone asked
        try {
-           BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+file)); // path where to write the file and file name
-
-           myBw.write(getOrderDetails()); // instead of writing the file name, pass in the receipt format
+           BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+ fileName)); // fileName is the name of the file inside eof the folder receipts
+            // receipts/yyyyMMdddd-hhmmss.txt
+           myBw.write(getOrderDetails()); // write to the file calling the order details method
            myBw.close(); // needs to close after done
        } catch (Exception e) {
            System.out.println("An error occurred");
