@@ -21,7 +21,7 @@ public class Main {
             //Switch case menu
             switch (choice) {
                 case 1:
-                    newOrder(); //Calling the new order method to create the order
+                    showOrderScreen(); //Calling the new order method to create the order
                     break;
                 case 0:
                     return; //stop the execution of the method
@@ -31,11 +31,10 @@ public class Main {
         }
     }
 
-    //Order Screen method
-    public static Order myOrder;
-
-    public static void newOrder() {
-        myOrder = new Order();//created my order object to store the list of items the user want. Need an object to call the method
+    //OderScreen method to get user input to add sandwich drinks, checkout etc
+    //New order method created here because cant create an object of class inside the same class
+    public static void showOrderScreen() {
+        Order myOrder = new Order();//created my order object to store the list of items the user want in the order class array list.  Need an object to call the method
         Scanner myScanner = new Scanner(System.in);
 
         while (true) { //While loop runs the newOrder screen until the user choose check out or cancel the order
@@ -49,20 +48,21 @@ public class Main {
 
             switch (orderChoice) {
                 case 1:
-                    myOrder.addSandwich(); //adding sandwich to the myorder object that is created
+                    myOrder.addSandwich(); //When user choose option 1 I will use myorder object to call teh add sandwich method that is created in the order class
                     break;
                 case 2:
-                    myOrder.addDrink(); // adding drink to the myorder object that is created
+                    myOrder.addDrink(); //When user choose option 2 I will use myorder object to call teh add drink method that is created in the order class
                     break;
                 case 3:
                     myOrder.addChips();
                     break;
                 case 4:
-                    myOrder.checkOut();
+                    myOrder.checkOut(); //When user choose option 4 I will use myorder object to call teh add checkout method that is created in the order class
                     showHomeScreen(); // calling home screen method because after user checkout go back to home screen
                     break;
-                case 0: myOrder = null; //Making my order object blank
-                    System.out.println("Your order has been canceled"); //TODO:find way to cancel order
+                case 0:
+                    myOrder = null; //Making my order object blank
+                    System.out.println("Your order has been canceled");
                     showHomeScreen(); //calling the homeScreen method to take the user back to home page
                     break;
                 default:
@@ -75,5 +75,3 @@ public class Main {
 }
 
 
-//TODO: Cancel option - delete order and go back to the home screen
-//TODO: BONUS
