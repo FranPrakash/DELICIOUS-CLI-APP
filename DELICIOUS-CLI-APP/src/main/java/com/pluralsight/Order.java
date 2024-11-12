@@ -79,7 +79,7 @@ public class Order {
         System.out.println("Please type C to confirm the order or X to Cancel the Order");
         String userChoice = myScanner.nextLine();
         if (userChoice.equals("C")) {
-            printReceipt(); //call the method printReceipt to confirm the order which will print the receipt
+            printReceipt(); //call the method printReceipt to confirm the order which will print the receipt if user confirm the order
         } else {
             listOfItems = null; //Making the list of items empty
             System.out.println("Order has been canceled");
@@ -105,10 +105,10 @@ public class Order {
         System.out.println(date + "-" + time + ".txt");
         String file = date + "-" + time + ".txt";// combining the way the capstone asked
        try {
-           BufferedWriter bw = new BufferedWriter(new FileWriter("Receipt.csv")); // path where to write the file and file name
+           BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+file)); // path where to write the file and file name
 
-           bw.write(file); // instead of writing the file name, pass in the receipt format
-           bw.close(); // needs to close after done
+           myBw.write(file); // instead of writing the file name, pass in the receipt format
+           myBw.close(); // needs to close after done
        } catch (Exception e) {
            System.out.println("An error occurred");
            e.printStackTrace(); //Display error
@@ -116,7 +116,7 @@ public class Order {
     }
 
 
-    //This methods will have list of all items
+    //This method will print the list of items and their prices and total order amount
     private String getOrderDetails() {
         //TODO: implement this method
         return "";
