@@ -108,14 +108,20 @@ public class Order {
        }
     }
 
-
-    //This method will print the list of items and their prices and total order amount
+    //This method will return the list of items and their prices and total order amount
+    //For each loop to loop in the list of items to get the items details one by one
     public static String getOrderDetails() {
-        //TODO: implement this method
-        String orderDetails ="---Oder Details---\n";
-
-
+        String orderDetails ="---Order Details---\n";
+        for(OrderItems item: listOfItems){ // for each item in list of items (order items type of array list)
+            orderDetails += item +"\n"; //adding item to the orderDetails variable
+        }
+        orderDetails += "Order Total: $" + getOrderTotal();
         return orderDetails;
+    }
+
+    private static double getOrderTotal() {
+        return 0;
+        //TODO: implement this method
     }
 
 
@@ -124,8 +130,6 @@ public class Order {
     public String toString() {
         return "Order{" + listOfItems.toString() + "}";
     }
-
-
 
 
     }
