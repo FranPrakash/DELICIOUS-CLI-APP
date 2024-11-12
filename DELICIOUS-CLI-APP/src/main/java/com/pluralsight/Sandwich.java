@@ -20,7 +20,48 @@ public class Sandwich implements OrderItems {
         this.size = size;
     }
 
-    //TODO: add getters and setters
+    //Getters and setters
+    public String getBreadType() {
+        return breadType;
+    }
+
+    public void setBreadType(String breadType) {
+        this.breadType = breadType;
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
+
+    public ArrayList<Topping> getSandwichToppings() {
+        return sandwichToppings;
+    }
+
+    public void setSandwichToppings(ArrayList<Topping> sandwichToppings) {
+        this.sandwichToppings = sandwichToppings;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+
 
     //Override method from orderItems interface
     @Override

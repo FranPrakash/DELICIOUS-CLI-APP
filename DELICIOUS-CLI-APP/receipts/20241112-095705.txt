@@ -1,0 +1,3 @@
+---Order Details---
+Sandwich{breadType='Rye', size=4, side='Au Jus', isToasted=true, sandwichToppings=[]}
+Order Total: $0.0

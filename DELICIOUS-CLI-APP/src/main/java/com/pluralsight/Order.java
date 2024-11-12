@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Order {
     //Array list to store user items choice. OrderItem is an interface that sandwich, chips and drinks implements, so I can Store object of those classes in a single list and I don't need top have 3 different list.
    private static ArrayList<OrderItems> listOfItems; // Creating a variable of type array list of order items interface. <> type. It accepts object of classes that implemts the interface
-
+//this array list can store objects of class sandwich chips and drinks
    //Constructor
     public Order() {
         listOfItems = new ArrayList<OrderItems>(); //initializing the array list in the constructor
@@ -45,7 +45,7 @@ public class Order {
         // TODO: Add toppings to the sandwich
         // mySandwich.addTopping();
 
-        listOfItems.add(mySandwich);//Adding drink to list of item
+        listOfItems.add(mySandwich);//Adding sandwich to list of item
     }
 
     //Created method so I can call it depends on the user choice
@@ -86,21 +86,21 @@ public class Order {
         }
     }
 
-
-   //Method Confirm - create the receipt file and go back to the home screen //Osmig help
+    //Osmig help
+   //Method Confirm - create the receipt file and go back to the home screen
     public static void printReceipt(){
-        String date = String.valueOf(LocalDate.now());
-        String time = String.valueOf(LocalTime.now().truncatedTo(ChronoUnit.SECONDS)); // hhmmssml -> hhmmss (took away mlsecs)
+        String date = String.valueOf(LocalDate.now()); //Get current date format YYYY-MM-DD
+        String time = String.valueOf(LocalTime.now().truncatedTo(ChronoUnit.SECONDS)); //Get current time  hhmmssml -> hhmmss (took away mlsecs)
 
-        date = date.replace("-", ""); // take - away
-        time = time.replace(":", ""); // take : away
+        date = date.replace("-", ""); // take away the dash -
+        time = time.replace(":", ""); // take away the colons :
         // Capstone format  yyyyMMdddd-hhmmss.txt
 
-        String fileName = date + "-" + time + ".txt";// combining the way the capstone asked
+        String fileName = date + "-" + time + ".txt";// combining the way the capstone asked to create the file name
        try {
            BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+ fileName)); // fileName is the name of the file inside eof the folder receipts
-            // receipts/yyyyMMdddd-hhmmss.txt
-           myBw.write(getOrderDetails()); // write to the file calling the order details method
+            // receipts/yyyyMMdddd-hhmmss.txt //Filewriter specify the file im writing to.
+           myBw.write(getOrderDetails()); // write to the file calling the order details method that returns order info
            myBw.close(); // needs to close after done
        } catch (Exception e) {
            System.out.println("An error occurred");
@@ -131,8 +131,7 @@ public class Order {
         return "Order{" + listOfItems.toString() + "}";
     }
 
-
-    }
+}
 
 
 

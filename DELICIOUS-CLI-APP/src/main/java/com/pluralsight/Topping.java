@@ -4,11 +4,18 @@ package com.pluralsight;
 public class Topping {
 
     //Properties
-    String name;
-    double price;
+   private String name;
+   private double price;
 
-public double getPrice(){
+   //Constructor
+    public Topping(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public double getPrice(){
     return 0;
     //TODO: implement this method
 }
 }
+

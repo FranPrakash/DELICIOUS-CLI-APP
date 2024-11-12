@@ -5,8 +5,8 @@ package com.pluralsight;
 public class Drink implements OrderItems{
 
     //Properties
-    String size;
-    String flavor;
+    private String size;
+    private String flavor;
 
 
     //Constructor

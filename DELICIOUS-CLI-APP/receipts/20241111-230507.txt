@@ -1,0 +1,3 @@
+---Order Details---
+Drink{flavor='Water', size='Small'}
+Order Total: $0.0

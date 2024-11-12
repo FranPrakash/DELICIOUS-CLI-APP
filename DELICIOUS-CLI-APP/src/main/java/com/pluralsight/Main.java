@@ -74,4 +74,9 @@ public class Main {
 
 }
 
+//TODO: OOP
+//TODO: demonstrate Encapsulation : string need to be private and getter and setter and constructor public (so I can access and modify the fields)
+//TODO: demonstrate Abstraction need to create interface. (need to have abstraction)
+//TODO: demonstrate inheritance (inherit properties and behavior of an existing class ) Have a parent class and children
+
 

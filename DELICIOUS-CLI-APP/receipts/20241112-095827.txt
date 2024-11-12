@@ -1,0 +1,3 @@
+---Order Details---
+Drink{flavor='Coca-cola', size='Small'}
+Order Total: $0.0

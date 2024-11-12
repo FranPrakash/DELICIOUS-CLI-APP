@@ -1,0 +1,4 @@
+---Order Details---
+Sandwich{breadType='White', size=8, side='Au jus', isToasted=true, sandwichToppings=[]}
+Chip{type='Potatoes'}
+Order Total: $0.0

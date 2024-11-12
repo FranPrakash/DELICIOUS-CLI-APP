@@ -6,8 +6,8 @@ public class Cheese extends Topping {
     private String name;
 
     //Constructor
-    public Cheese(String name) {
-        this.name = name;
+    public Cheese(String name, double price) {
+        super(name, price);
     }
 
     //Getters and setters
@@ -25,7 +25,7 @@ public class Cheese extends Topping {
         return "Cheese{" +
                 "name='" + name + '\'' +
                 ", name='" + name + '\'' +
-                ", price=" + price +
+                ", price=" + getPrice() +
                 '}';
     }
 }
