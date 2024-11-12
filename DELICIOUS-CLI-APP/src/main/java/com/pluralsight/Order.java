@@ -91,23 +91,16 @@ public class Order {
     public static void printReceipt(){
         String date = String.valueOf(LocalDate.now());
         String time = String.valueOf(LocalTime.now().truncatedTo(ChronoUnit.SECONDS)); // hhmmssml -> hhmmss (took away mlsecs)
-        // default format  yyyy-MM-dddd
-        System.out.println(date);
-        System.out.println(time);
 
         date = date.replace("-", ""); // take - away
         time = time.replace(":", ""); // take : away
-        // Capstone format  yyyyMMdddd
-        System.out.println(date);
-        // Capstone format  HHMMSS
-        System.out.println(time);
-        // yyyyMMdddd-HHMMSS.txt
-        System.out.println(date + "-" + time + ".txt");
+        // Capstone format  yyyyMMdddd-hhmmss.txt
+
         String file = date + "-" + time + ".txt";// combining the way the capstone asked
        try {
            BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+file)); // path where to write the file and file name
 
-           myBw.write(file); // instead of writing the file name, pass in the receipt format
+           myBw.write(getOrderDetails()); // instead of writing the file name, pass in the receipt format
            myBw.close(); // needs to close after done
        } catch (Exception e) {
            System.out.println("An error occurred");
@@ -117,9 +110,12 @@ public class Order {
 
 
     //This method will print the list of items and their prices and total order amount
-    private String getOrderDetails() {
+    public static String getOrderDetails() {
         //TODO: implement this method
-        return "";
+        String orderDetails ="---Oder Details---\n";
+
+
+        return orderDetails;
     }
 
 
