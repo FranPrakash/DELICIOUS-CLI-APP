@@ -1,14 +1,13 @@
 package com.pluralsight;
 //Child of Topping
 
-public class PremiumTopping extends Topping {
+public class Cheese extends Topping {
 
-    private String toppingType;
+
     //Super Constructor
 
-    public PremiumTopping(boolean isExtra, String name, int sandwichSize, String toppingType) {
+    public Cheese(boolean isExtra, String name, int sandwichSize) {
         super(isExtra, name, sandwichSize);
-        this.toppingType = toppingType;
     }
 
     @Override
@@ -19,6 +18,6 @@ public class PremiumTopping extends Topping {
     //osmig help
     @Override
     public String toString() {
-        return "";
+        return this.getName() + " $" + this.getPrice();
     }
 }

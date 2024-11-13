@@ -11,7 +11,9 @@ public class Sandwich implements OrderItems {
     private int size;
     private String side;
     private boolean isToasted;
-    private ArrayList<Topping> sandwichToppings; //Array list to store toppings
+
+    //Array list to store topping objects/ (store information about the topping)
+    private ArrayList<Topping> sandwichToppings;
 
     //Constructor
     public Sandwich(String breadType, boolean isToasted, String side, int size) {
@@ -70,13 +72,30 @@ public class Sandwich implements OrderItems {
         //TODO: implement this method
     }
 
-    public void addTopping(){
+    // addTopping menu to the user
+    public void addTopping() {
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("What type of toppings do you prefer ? ");
-        System.out.println("Available options: Meats");
+        System.out.println("What type of toppings do you prefer ? Please choose from below options: ");
+        System.out.println("Meats: steak , ham, salami, roast beef, chicken , bacon (4\": $1, 8\": $2, 12\": $3)");
+        System.out.println("Extra meat: (4\": $0.50, 8\": $1.00, 12\": $1.50)");
+        System.out.println("Cheese: American,Provolone, Cheddar, Swiss (4\": $0.75, 8\": $1.50, 12\": $2.25)");
+        System.out.println("Extra Cheese: (4\": $0.30, 8\": $0.60, 12\": $0.90)");
+        System.out.println("Regular Toppings: Lettuce, Peppers, Onions, Tomatoes, Jalapenos, Cucumbers, Pickles, Guacamole, Mushrooms (Included)");
+        System.out.println("Sauces: Mayo, Mustard, Ketchup, Ranch, Thousand Islands , Vinaigrette (included)");
         String userChoice = myScanner.nextLine();
         switch (userChoice) {
-            case 1:
+            case "steak", "ham", "salami", "roast beef", "chicken", "bacon":
+                break;
+            case "American", "Provolone", "Cheddar", "Swiss":
+                Cheese myChesse = new Cheese(false, userChoice, size);
+
+                break;
+            case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole",
+                 "Mushrooms":
+                break;
+            case "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette":
+            default:
+                System.out.println("Invalid Option");
 
         }
     }
