@@ -12,7 +12,7 @@ public class Meat extends Topping {
     @Override
     public double getPrice() {
         switch (getSandwichSize()) {
-            case 4:
+            case 4: //Size of the sandwich
                 if (isExtra()) return 0.50;
                 else return 1.00;
             case 8:

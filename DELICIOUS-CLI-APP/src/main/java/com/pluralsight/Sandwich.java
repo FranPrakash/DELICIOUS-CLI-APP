@@ -93,7 +93,7 @@ public class Sandwich implements OrderItems {
                 sandwichToppings.add(myChesse); // adding the cheese object to the sandwich topping list because the list store object toppings
                 System.out.println("Do you want extra Cheese ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
-                    Cheese myExtraChesse = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
+                    Cheese myExtraCheese = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
                     sandwichToppings.add(myChesse);
                 }
                 break;
@@ -109,12 +109,12 @@ public class Sandwich implements OrderItems {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
+        return "Sandwich" +
                 "breadType='" + breadType + '\'' +
-                ", size=" + size +
-                ", side='" + side + '\'' +
-                ", isToasted=" + isToasted +
-                ", sandwichToppings=" + sandwichToppings +
+                " size=" + size +
+                " side='" + side + '\'' +
+                " isToasted=" + isToasted +
+                " sandwichToppings=" + sandwichToppings +
                 '}';
     }
 }

@@ -1,0 +1,5 @@
+---Order Details---
+Sandwich{breadType='White', size=4, side='Au jus', isToasted=true, sandwichToppings=[]}
+Drink{flavor='Water', size='Small'}
+Chip{type='Potatoes'}
+Order Total: $0.0
