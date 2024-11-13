@@ -13,7 +13,8 @@ public class Sandwich implements OrderItems {
     private boolean isToasted;
 
     //Array list to store topping objects/ (store information about the topping)
-    private ArrayList<Topping> sandwichToppings;
+    //Creating an array list of topping objects so that I can add to this list objects that represents different types of toppings like cheese, sauce and meat.
+    private ArrayList<Topping> sandwichToppings; //I can store objects from the children classes
 
     //Constructor
     public Sandwich(String breadType, boolean isToasted, String side, int size) {
@@ -72,7 +73,7 @@ public class Sandwich implements OrderItems {
         //TODO: implement this method
     }
 
-    // addTopping menu to the user
+    // Menu add topping
     public void addTopping() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of toppings do you prefer ? Please choose from below options: ");
@@ -84,11 +85,17 @@ public class Sandwich implements OrderItems {
         System.out.println("Sauces: Mayo, Mustard, Ketchup, Ranch, Thousand Islands , Vinaigrette (included)");
         String userChoice = myScanner.nextLine();
         switch (userChoice) {
-            case "steak", "ham", "salami", "roast beef", "chicken", "bacon":
+            case "steak", "ham", "salami", "roast beef", "chicken",
+                 "bacon": // I am checking for multiple values in a single case. User can choose any of the options
                 break;
             case "American", "Provolone", "Cheddar", "Swiss":
-                Cheese myChesse = new Cheese(false, userChoice, size);
-
+                Cheese myChesse = new Cheese(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
+                sandwichToppings.add(myChesse); // adding the cheese object to the sandwich topping list because the list store object toppings
+                System.out.println("Do you want extra Cheese ? Type Y for yes and N for no");
+                if (myScanner.nextLine().equals("Y")) {
+                    Cheese myExtraChesse = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
+                    sandwichToppings.add(myChesse);
+                }
                 break;
             case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole",
                  "Mushrooms":
