@@ -73,7 +73,7 @@ public class Sandwich implements OrderItems {
         //TODO: implement this method
     }
 
-    // Menu add topping
+    // Menu addtopping
     public void addTopping() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of toppings do you prefer ? Please choose from below options: ");
@@ -99,6 +99,13 @@ public class Sandwich implements OrderItems {
                 break;
             case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole",
                  "Mushrooms":
+                RegularTopping myRt = new RegularTopping(true, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
+                sandwichToppings.add(myRt); // adding the topping object to the sandwich topping list because the list store object toppings
+                System.out.println("Do you want extra Cheese ? Type Y for yes and N for no");
+                if (myScanner.nextLine().equals("Y")) {
+                    Cheese myExtraCheese = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
+                    sandwichToppings.add(myRt);
+                }
                 break;
             case "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette":
             default:

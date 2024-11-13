@@ -24,13 +24,13 @@ public class Order {
     public void addSandwich() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Bread do you want?");
-        System.out.println("Available Options : White, Wheat, Rye, Wrap");
+        System.out.println("(1) White, (2) Wheat, (3) Rye, (4)Wrap");
         String breadType = myScanner.nextLine();
         System.out.println("What Sandwich size do you want ? ");
-        System.out.println("Available Options : 4\", 8\", 12\"");
+        System.out.println("4\", 8\", 12\"");
         int sandwichSize = myScanner.nextInt();
         myScanner.nextLine();
-        System.out.println("Do you want the Sandwich toasted? Type Y for Yes and N for no");
+        System.out.println("Do you want your Sandwich toasted? type Y for yes and N for no");
         String toastedChoice = myScanner.nextLine();
         boolean isToasted; //Using and if to convert from Y and N to true and false.Started by initiating the value to false
         if (toastedChoice.equals("Y")) {
@@ -38,10 +38,11 @@ public class Order {
         } else {
             isToasted = false;
         }
-        System.out.println("What side do you want?");
-        System.out.println("Available Options: Au Jus, Sauce");
+        System.out.println("Do you want a side? "); // I don't want a side
+        System.out.println("(1) Au Jus, (2) Sauce, (3)No Side");
         String sideChoice = myScanner.nextLine();
-        Sandwich mySandwich = new Sandwich(breadType, isToasted, sideChoice, sandwichSize);
+        Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
+
 
         // TODO: Add toppings to the sandwich
         // mySandwich.addTopping();
@@ -54,10 +55,10 @@ public class Order {
     public void addDrink() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Drink do you want?");
-        System.out.println("Available Options : Water, Coca-Cola, OrangeJuice, Lemonade, WatermelonJuice");
+        System.out.println("Available Options : (1) Water, (2)Coca-Cola, (3)OrangeJuice, (4)Lemonade, (5)WatermelonJuice");
         String drinkFlavor = myScanner.nextLine();
         System.out.println("What size do you want ? ");
-        System.out.println("Available Options : Small, Medium, Large");
+        System.out.println("(1)Small, (2)Medium, (3)Large");
         String drinkSize = myScanner.nextLine();
         Drink myDrink = new Drink(drinkFlavor, drinkSize); //Creating a drink object to add to listOfItems
         listOfItems.add(myDrink); //Adding drink to list of item
@@ -67,7 +68,7 @@ public class Order {
     public void addChips() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Chip do you want?");
-        System.out.println("Available Options : Potatoes, Tapioca, DriedVeggie");
+        System.out.println("(1)Potatoes, (2)Tapioca, (3)DriedVeggie");
         String chipChoice = myScanner.nextLine(); //Store user choice
 
         Chip myChip = new Chip(chipChoice); //Object to be added to the list of items
@@ -77,13 +78,13 @@ public class Order {
     public void checkOut() {
         System.out.println(getOrderDetails()); //printing the order details by calling the method show order details
         Scanner myScanner = new Scanner(System.in); //get the user input
-        System.out.println("Please type C to confirm the order or X to Cancel the Order");
+        System.out.println("Is everything right? Type C to confirm the order or X to Cancel the Order");
         String userChoice = myScanner.nextLine();
         if (userChoice.equals("C")) {
             printReceipt(); //call the method printReceipt to confirm the order which will print the receipt if user confirm the order
         } else {
             listOfItems = null; //Making the list of items empty
-            System.out.println("Order has been canceled");
+            System.out.println("Your order has been canceled!");
         }
     }
 
@@ -126,7 +127,7 @@ public class Order {
     }
 
 
-    //Osmig
+
     @Override
     public String toString() {
         return "Order{" + listOfItems.toString() + "}";

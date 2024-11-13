@@ -8,13 +8,27 @@ public class RegularTopping extends Topping {  // includes regular toppings and 
         super(isExtra, name, sandwichSize);
     }
 
+    //Calculate price based on the size and extra topping
     @Override
     public double getPrice(){
-        return 0;
+        return 0; //Return zero because the price is 0
+        }
+
+        @Override
+        public String toString () {
+            return this.getName() + " $" + this.getPrice();
+        }
     }
 
-    @Override
-    public String toString() {
-        return this.getName() + " $" + this.getPrice();
-    }
-}
+/*Regular toppings
+Lettuce
+Peppers
+Onions
+Tomatoes
+Jalapeños
+Cucumbers
+Pickles
+Guacamole
+Mushrooms
+Sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette)
+Sides (au jus, sauce) */

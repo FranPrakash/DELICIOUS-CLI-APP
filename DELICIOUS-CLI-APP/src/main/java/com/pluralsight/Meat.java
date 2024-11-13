@@ -1,6 +1,7 @@
 package com.pluralsight;
-//Child of Topping
 
+//Premium topping
+//Child of Topping
 public class Meat extends Topping {
 
     //Super Constructor
@@ -22,10 +23,6 @@ public class Meat extends Topping {
                 if (isExtra()) return 1.50;
                 else return 3.00;
         }
-       /*
-        if(isExtra()) return (0.50 * this.getSandwichSize()/4);
-        else return (1.00 * this.getSandwichSize()/4);
-        */
         return 0;
     }
 
@@ -34,3 +31,17 @@ public class Meat extends Topping {
         return this.getName() + " $" + this.getPrice();
     }
 }
+
+  /*
+        if(isExtra()) return (0.50 * this.getSandwichSize()/4);
+        else return (1.00 * this.getSandwichSize()/4);
+        */
+
+/* premium topping
+Steak
+Ham
+Salami
+Roast Beef
+Chicken
+Bacon
+ */

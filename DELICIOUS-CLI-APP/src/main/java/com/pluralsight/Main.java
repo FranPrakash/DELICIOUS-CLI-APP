@@ -38,7 +38,7 @@ public class Main {
         Scanner myScanner = new Scanner(System.in);
 
         while (true) { //While loop runs the newOrder screen until the user choose check out or cancel the order
-            System.out.println("Please select one option below");
+            System.out.println("Please select one option below:" + "\n");
             System.out.println("Type 1 to Add Sandwich");
             System.out.println("Type 2 to add Drink ");
             System.out.println("Type 3 to Add Chips");
@@ -66,7 +66,7 @@ public class Main {
                     showHomeScreen(); //calling the homeScreen method to take the user back to home page
                     break;
                 default:
-                    System.out.println("Select a Valid option");
+                    System.out.println("Your options is not valid, try again :)");
             }
         }
     }
