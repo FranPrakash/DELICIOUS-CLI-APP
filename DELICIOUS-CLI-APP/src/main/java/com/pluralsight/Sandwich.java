@@ -1,6 +1,8 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 //implementing the interface OrderItems
 public class Sandwich implements OrderItems {
 
@@ -61,8 +63,6 @@ public class Sandwich implements OrderItems {
         this.size = size;
     }
 
-
-
     //Override method from orderItems interface
     @Override
     public double getPrice() {
@@ -71,8 +71,14 @@ public class Sandwich implements OrderItems {
     }
 
     public void addTopping(){
-        //TODO: Implement this method
-       // TODO: User choose extra topping
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("What type of toppings do you prefer ? ");
+        System.out.println("Available options: Meats");
+        String userChoice = myScanner.nextLine();
+        switch (userChoice) {
+            case 1:
+
+        }
     }
 
     @Override
