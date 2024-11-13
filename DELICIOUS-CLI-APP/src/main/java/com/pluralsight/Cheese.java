@@ -1,31 +1,24 @@
 package com.pluralsight;
 //Child of Topping
 
-public class Cheese extends Topping {
+public class PremiumTopping extends Topping {
 
-    private String name;
+    private String toppingType;
+    //Super Constructor
 
-    //Constructor
-    public Cheese(String name, double price) {
-        super(name, price);
+    public PremiumTopping(boolean isExtra, String name, int sandwichSize, String toppingType) {
+        super(isExtra, name, sandwichSize);
+        this.toppingType = toppingType;
     }
 
-    //Getters and setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public double getPrice(){
+        return (0.75 * this.getSandwichSize()/4);
     }
 
     //osmig help
     @Override
     public String toString() {
-        return "Cheese{" +
-                "name='" + name + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + getPrice() +
-                '}';
+        return "";
     }
 }
