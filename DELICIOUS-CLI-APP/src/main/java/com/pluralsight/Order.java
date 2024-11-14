@@ -24,7 +24,7 @@ public class Order {
     public void addSandwich() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Bread do you want?");
-        System.out.println("(1) White, (2) Wheat, (3) Rye, (4)Wrap");
+        System.out.println("White, Wheat, Rye, Wrap");
         String breadType = myScanner.nextLine();
         System.out.println("What Sandwich size do you want ? ");
         System.out.println("4\", 8\", 12\"");
@@ -39,7 +39,7 @@ public class Order {
             isToasted = false;
         }
         System.out.println("Do you want a side? ");
-        System.out.println("(1) Au Jus, (2) Sauce, (3)No Side");
+        System.out.println("Au Jus, Sauce, No Side");
         String sideChoice = myScanner.nextLine();
         Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
 
@@ -55,10 +55,10 @@ public class Order {
     public void addDrink() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Drink do you want?");
-        System.out.println("Available Options : (1) Water, (2)Coca-Cola, (3)OrangeJuice, (4)Lemonade, (5)WatermelonJuice");
+        System.out.println("Available Options : Water, Coca-Cola, OrangeJuice, Lemonade, WatermelonJuice");
         String drinkFlavor = myScanner.nextLine();
         System.out.println("What size do you want ? ");
-        System.out.println("(1)Small, (2)Medium, (3)Large");
+        System.out.println("Small, Medium, Large");
         String drinkSize = myScanner.nextLine();
         Drink myDrink = new Drink(drinkFlavor, drinkSize); //Creating a drink object to add to listOfItems
         listOfItems.add(myDrink); //Adding drink to list of item
@@ -68,7 +68,7 @@ public class Order {
     public void addChips() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Chip do you want?");
-        System.out.println("(1)Potatoes, (2)Tapioca, (3)DriedVeggie");
+        System.out.println("Potatoes, Tapioca, DriedVeggie");
         String chipChoice = myScanner.nextLine(); //Store user choice
 
         Chip myChip = new Chip(chipChoice); //Object to be added to the list of items
