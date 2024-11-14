@@ -1,14 +1,14 @@
 package com.pluralsight;
 
 //Parent class
-public class Topping {
+public abstract class Topping {
 
     //Properties
-   private String name;
-   private boolean isExtra;
-   private int sandwichSize;
+    private String name;
+    private boolean isExtra;
+    private int sandwichSize;
 
-   //Constructor
+    //Constructor
     public Topping(boolean isExtra, String name, int sandwichSize) {
         this.isExtra = isExtra;
         this.name = name;
@@ -40,14 +40,9 @@ public class Topping {
         this.sandwichSize = sandwichSize;
     }
 
-    public double getPrice(){
-    return 0;
-    //TODO: implement this method
-}
+    public abstract double getPrice();
 
     @Override
-    public String toString() {
-        return name + " topping: $" + getPrice();
-    }
+    public abstract String toString();
 }
 

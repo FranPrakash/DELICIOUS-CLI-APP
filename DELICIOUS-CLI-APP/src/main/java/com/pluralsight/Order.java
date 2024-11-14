@@ -127,12 +127,15 @@ public class Order {
         return orderDetails;
     }
 
+    // Method to calculate the total price of the entire order
     private static double getOrderTotal() {
-        return 0;
-        //TODO: implement this method
+        double orderTotal = 0;
+        // for each item in the order
+        for(OrderItems item: listOfItems){
+            orderTotal += item.getPrice(); // add the price to the order total
+        }
+        return orderTotal;
     }
-
-
 
     @Override
     public String toString() { //Display the order details in a nice way

@@ -16,7 +16,8 @@ public class RegularTopping extends Topping {  // includes regular toppings and 
 
     @Override
     public String toString() {
-        return this.getName() + " $" + this.getPrice();
+        if (isExtra()) return "Extra " + this.getName() + ": $" + this.getPrice();
+        else return this.getName() + ": $" + this.getPrice();
     }
 }
 

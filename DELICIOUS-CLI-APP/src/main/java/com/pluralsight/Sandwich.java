@@ -25,12 +25,24 @@ public class Sandwich implements OrderItems {
         this.size = size;
     }
 
-
     //Override method from orderItems interface
     @Override
-    public double getPrice() {
-        return 0;
-        //TODO: implement this method
+    public double getPrice() { // Calculate the total Price of the Sandwich
+        // calculate the price of the bread
+        double breadPrice = 0;
+        if (size == 4) breadPrice = 5.50;
+        else if (size == 8) breadPrice = 7.00;
+        else breadPrice = 8.50;
+
+        //calculate the sum of prices of the toppings in the sandwich
+        double toppingsPriceSum = 0;
+        // for each myTopping object of Type Topping in sandwichToppings list
+        for(Topping myTopping : sandwichToppings){ // loop through the toppings
+            toppingsPriceSum += myTopping.getPrice(); // add the price of each topping to the toppingsPriceSum
+        }
+
+        return breadPrice + toppingsPriceSum; // total price = bread price + toppings price
+
     }
 
     // Add Topping Menu
@@ -46,7 +58,7 @@ public class Sandwich implements OrderItems {
             case "american", "provolone", "cheddar", "swiss":
                 PremiumTopping myPT = new PremiumTopping(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
                 sandwichToppings.add(myPT); // adding the extra topping object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra "+userChoice +" ? Type Y for yes and N for no");
+                System.out.println("Do you want extra " + userChoice + " ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
                     PremiumTopping myExtraPT = new PremiumTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
                     sandwichToppings.add(myExtraPT);
@@ -55,9 +67,9 @@ public class Sandwich implements OrderItems {
             case "lettuce", "peppers", "onions", "tomatoes", "jalapenos", "cucumbers", "pickles", "guacamole",
                  "mushrooms":
             case "mayo", "mustard", "ketchup", "ranch", "thousand islands", "vinaigrette":
-                RegularTopping myRT = new RegularTopping(true, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
+                RegularTopping myRT = new RegularTopping(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
                 sandwichToppings.add(myRT); // adding the topping object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra "+userChoice +" ? Type Y for yes and N for no");
+                System.out.println("Do you want extra " + userChoice + " ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
                     RegularTopping myExtraRT = new RegularTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
                     sandwichToppings.add(myExtraRT);
@@ -88,6 +100,7 @@ public class Sandwich implements OrderItems {
         String myText = size + " Inch";   //  storing the size in the variable myText
         if (isToasted) myText += " Toasted"; // adding the word "toasted" to myText if isToasted is true
         myText += " " + breadType + " Sandwich with " + side + " Side" + ": $" + getPrice(); // Adding the rest of the text we want to display on the receipt
+
         return myText;
     }
 } //Size + breadType + toasted and side

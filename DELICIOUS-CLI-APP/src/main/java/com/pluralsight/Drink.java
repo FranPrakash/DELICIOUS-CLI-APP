@@ -33,10 +33,13 @@ public class Drink implements OrderItems{
     }
 
     //Override method from orderItems interface
+    //Calculate drink price
     @Override
     public double getPrice() {
-        return 0;
-        //TODO implement this method
+        if(size.equalsIgnoreCase("Small")) return 2.00; //Ignore case method upper case and lower case are accepted as user input
+        else if(size.equalsIgnoreCase("Medium")) return 2.50;
+        else if (size.equalsIgnoreCase("Large")) return 3.00;
+        else return 0;
     }
 
     @Override

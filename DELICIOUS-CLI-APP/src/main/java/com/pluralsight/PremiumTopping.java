@@ -1,6 +1,8 @@
 package com.pluralsight;
 
+import java.util.List;
 
+//Child of topping
 public class PremiumTopping extends Topping {
 
     //Super Constructor
@@ -8,32 +10,41 @@ public class PremiumTopping extends Topping {
         super(isExtra, name, sandwichSize);
     }
 
-    //Switch case to check the extra price of the premium toppings
+    //calculating the topping and the extra topping value
     @Override
     public double getPrice() {
-        switch (getSandwichSize()) {
-            case 4: //Sandwich size
-                if (isExtra()) return 0.30;
-                else return 0.00;
-            case 8:
-                if (isExtra()) return 0.60;
-                else return 0.00;
-            case 12:
-                if (isExtra()) return 0.90;
-                else return 0.00;
-        }
-        return 0;
+        List<String> meats = List.of("steak", "ham", "salami", "roast beef", "chicken", "bacon");
+        List<String> cheeses = List.of("american", "provolone", "cheddar", "swiss");
+        String type = "";
+        if (meats.contains(getName().toLowerCase()))
+            type = "meat"; // We search for the name of the topping in the list of meats. If we find it then type=meat else type=cheese
+        else type = "cheese";
+
+        if (type.equalsIgnoreCase("meat") && !isExtra() && getSandwichSize() == 4) return 1.00;  // meat topping (no extra) for 4 inch sandwich price is $1.00
+        else if (type.equalsIgnoreCase("meat") && !isExtra() && getSandwichSize() == 8) return 2.00;
+        else if (type.equalsIgnoreCase("meat") && !isExtra() && getSandwichSize() == 12) return 3.00;
+        else if (type.equalsIgnoreCase("meat") && isExtra() && getSandwichSize() == 4) return 0.50;
+        else if (type.equalsIgnoreCase("meat") && isExtra() && getSandwichSize() == 8) return 1.00;  // meat topping (extra) for 8 inch sandwich price is $1.00
+        else if (type.equalsIgnoreCase("meat") && isExtra() && getSandwichSize() == 12) return 1.50;
+        else if (type.equalsIgnoreCase("cheese") && !isExtra() && getSandwichSize() == 4) return 0.75;
+        else if (type.equalsIgnoreCase("cheese") && !isExtra() && getSandwichSize() == 8) return 1.50;
+        else if (type.equalsIgnoreCase("cheese") && !isExtra() && getSandwichSize() == 12) return 2.25;
+        else if (type.equalsIgnoreCase("cheese") && isExtra() && getSandwichSize() == 4) return 0.30;
+        else if (type.equalsIgnoreCase("cheese") && isExtra() && getSandwichSize() == 8) return 0.60;
+        else if (type.equalsIgnoreCase("cheese") && isExtra() && getSandwichSize() == 12) return 0.90; // cheese topping (extra) for 12 inch sandwich price is $0.90
+        else return 0;
     }
 
     //osmig help
     @Override
     public String toString() {
-        return this.getName() + ": $" + this.getPrice();
+        if (isExtra()) return "Extra " + this.getName() + ": $" + this.getPrice();
+        else return this.getName() + ": $" + this.getPrice();
     }
 }
 
 
-/* premium Cheese
+/* premium Cheese and meat
 American
 Provolone
 Cheddar
