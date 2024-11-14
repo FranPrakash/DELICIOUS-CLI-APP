@@ -1,0 +1,5 @@
+---Order Details---
+4 Inch Toasted White Sandwich with Au Jus Side: $6.25
+ -lettuce: $0.0
+ -american: $0.75
+Order Total: $6.25

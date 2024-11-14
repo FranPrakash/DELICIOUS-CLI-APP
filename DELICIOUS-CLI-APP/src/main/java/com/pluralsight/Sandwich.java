@@ -37,7 +37,7 @@ public class Sandwich implements OrderItems {
         //calculate the sum of prices of the toppings in the sandwich
         double toppingsPriceSum = 0;
         // for each myTopping object of Type Topping in sandwichToppings list
-        for(Topping myTopping : sandwichToppings){ // loop through the toppings
+        for (Topping myTopping : sandwichToppings) { // loop through the toppings
             toppingsPriceSum += myTopping.getPrice(); // add the price of each topping to the toppingsPriceSum
         }
 
@@ -94,13 +94,20 @@ public class Sandwich implements OrderItems {
         System.out.println("----------------------------------------------------------------------------------------------------------------------");
     }
 
-    //Format the order details
+    //Format the order details return a string
     @Override
     public String toString() {
         String myText = size + " Inch";   //  storing the size in the variable myText
         if (isToasted) myText += " Toasted"; // adding the word "toasted" to myText if isToasted is true
         myText += " " + breadType + " Sandwich with " + side + " Side" + ": $" + getPrice(); // Adding the rest of the text we want to display on the receipt
 
-        return myText;
+        //???????
+        for(Topping myTopping: sandwichToppings) {
+            myText += "\n -" + myTopping;
+        }
+          return myText;
     }
-} //Size + breadType + toasted and side
+}
+
+
+//Size + breadType + toasted and side

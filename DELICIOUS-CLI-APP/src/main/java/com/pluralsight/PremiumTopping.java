@@ -13,9 +13,9 @@ public class PremiumTopping extends Topping {
     //calculating the topping and the extra topping value
     @Override
     public double getPrice() {
-        List<String> meats = List.of("steak", "ham", "salami", "roast beef", "chicken", "bacon");
-        List<String> cheeses = List.of("american", "provolone", "cheddar", "swiss");
-        String type = "";
+        List<String> meats = List.of("steak", "ham", "salami", "roast beef", "chicken", "bacon"); //List to store meats toppings
+        List<String> cheeses = List.of("american", "provolone", "cheddar", "swiss"); //List to store Cheeses toppings
+        String type = ""; // store the result of the
         if (meats.contains(getName().toLowerCase()))
             type = "meat"; // We search for the name of the topping in the list of meats. If we find it then type=meat else type=cheese
         else type = "cheese";

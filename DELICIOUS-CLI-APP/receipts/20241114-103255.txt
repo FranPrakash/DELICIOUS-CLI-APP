@@ -1,0 +1,6 @@
+---Order Details---
+4 Inch Toasted White Sandwich with Sauce Side: $7.75
+ -steak: $1.0
+ -Extra steak: $0.5
+ -american: $0.75
+Order Total: $7.75
