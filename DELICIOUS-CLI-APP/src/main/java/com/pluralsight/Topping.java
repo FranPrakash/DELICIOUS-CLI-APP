@@ -44,5 +44,10 @@ public class Topping {
     return 0;
     //TODO: implement this method
 }
+
+    @Override
+    public String toString() {
+        return name + " topping: $" + getPrice();
+    }
 }
 

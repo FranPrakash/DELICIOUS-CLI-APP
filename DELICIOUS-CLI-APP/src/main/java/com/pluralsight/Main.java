@@ -17,13 +17,13 @@ public class Main {
         while (true) { // While loop runs the home screen until the user choose to exit
             System.out.println("----Welcome to the DELI-cious App!----" + "\n");
             System.out.println("Choose 1 for New Order or 0 to Exit");
-            int choice = myScanner.nextInt();
+            String choice = myScanner.nextLine();
             //Switch case menu
             switch (choice) {
-                case 1:
+                case "1":
                     showOrderScreen(); //Calling the new order method to create the order
                     break;
-                case 0:
+                case "0":
                     return; //stop the execution of the method
                 default:
                     System.out.println("Invalid Choice");
@@ -44,23 +44,23 @@ public class Main {
             System.out.println("Type 3 to Add Chips");
             System.out.println("Type 4 to check out");
             System.out.println("Type 0 to cancel the order");
-            int orderChoice = myScanner.nextInt();
+            String orderChoice = myScanner.nextLine();
 
             switch (orderChoice) {
-                case 1:
+                case "1":
                     myOrder.addSandwich(); //When user choose option 1 I will use myorder object to call teh add sandwich method that is created in the order class
                     break;
-                case 2:
+                case "2":
                     myOrder.addDrink(); //When user choose option 2 I will use myorder object to call teh add drink method that is created in the order class
                     break;
-                case 3:
+                case "3":
                     myOrder.addChips();
                     break;
-                case 4:
+                case "4":
                     myOrder.checkOut(); //When user choose option 4 I will use myorder object to call teh add checkout method that is created in the order class
                     showHomeScreen(); // calling home screen method because after user checkout go back to home screen
                     break;
-                case 0:
+                case "0":
                     myOrder = null; //Making my order object blank
                     System.out.println("Your order has been canceled");
                     showHomeScreen(); //calling the homeScreen method to take the user back to home page

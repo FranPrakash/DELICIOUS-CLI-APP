@@ -10,15 +10,15 @@ public class RegularTopping extends Topping {  // includes regular toppings and 
 
     //Calculate price based on the size and extra topping
     @Override
-    public double getPrice(){
+    public double getPrice() {
         return 0; //Return zero because the price is 0
-        }
-
-        @Override
-        public String toString () {
-            return this.getName() + " $" + this.getPrice();
-        }
     }
+
+    @Override
+    public String toString() {
+        return this.getName() + " $" + this.getPrice();
+    }
+}
 
 /*Regular toppings
 Lettuce

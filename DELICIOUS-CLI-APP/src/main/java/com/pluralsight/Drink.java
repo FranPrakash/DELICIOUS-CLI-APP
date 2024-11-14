@@ -40,10 +40,8 @@ public class Drink implements OrderItems{
     }
 
     @Override
-    public String toString() {
-        return "Drink{" +
-                "flavor='" + flavor + '\'' +
-                ", size='" + size + '\'' +
-                '}';
+    public String toString() { // Medium Coca-Cola: $2
+      return size + " " + flavor + " " + "$" + getPrice();
     }
 }
+//Size and favor price

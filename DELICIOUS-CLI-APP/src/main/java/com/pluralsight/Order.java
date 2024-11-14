@@ -40,7 +40,7 @@ public class Order {
         }
         //ask the user for side
         System.out.println("Do you want a side? ");
-        System.out.println("Au Jus, Sauce, No Side");
+        System.out.println("Au Jus, Sauce ");
         String sideChoice = myScanner.nextLine();
         Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
 
@@ -74,9 +74,9 @@ public class Order {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("What type of Chip do you want?");
         System.out.println("Potatoes, Tapioca, DriedVeggie");
-        String chipChoice = myScanner.nextLine(); //Store user choice
+        String chipType = myScanner.nextLine(); //Store user choice
 
-        Chip myChip = new Chip(chipChoice); //Object to be added to the list of items
+        Chip myChip = new Chip(chipType); //Object to be added to the list of items
         listOfItems.add(myChip); //adding chips to list of items
     }
     //Method to ask the user if he wants to confirm or cancel the order, if user chose to confirm the printReceipt method is called else user has chosen to cancel the order
@@ -134,8 +134,8 @@ public class Order {
 
 
     @Override
-    public String toString() {
-        return "Order{" + listOfItems.toString() + "}";
+    public String toString() { //Display the order details in a nice way
+        return getOrderDetails();
     }
 
 }

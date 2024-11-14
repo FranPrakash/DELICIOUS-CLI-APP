@@ -112,12 +112,10 @@ public class Sandwich implements OrderItems {
 
     @Override
     public String toString() {
-        return "Sandwich" +
-                "breadType='" + breadType + '\'' +
-                " size=" + size +
-                " side='" + side + '\'' +
-                " isToasted=" + isToasted +
-                " sandwichToppings=" + sandwichToppings +
-                '}';
+        String myText = size + " Inch";   //  storing the size in the variable myText
+        if(isToasted) myText += " Toasted"; // adding the word "toasted" to myText if isToasted is true
+        myText += " " + breadType + " Sandwich with " + side + " Side" + ": $" + getPrice(); // Adding the rest of the text we want to display on the receipt
+        return myText;
     }
-}
+} //Size + breadType + toasted and side
+

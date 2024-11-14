@@ -27,12 +27,9 @@ public class Chip implements OrderItems {
     }
 
     @Override
-    public String toString() {
-        return "Chip{" +
-                "type='" + type + '\'' +
-                '}';
+    public String toString() { //Formating the way the information will be printed to the receipt
+        return type + " Chips: $" + getPrice();
     }
 }
 
 
-//Can a method be final ?
