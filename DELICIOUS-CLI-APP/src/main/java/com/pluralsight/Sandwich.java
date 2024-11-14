@@ -25,46 +25,6 @@ public class Sandwich implements OrderItems {
         this.size = size;
     }
 
-    //Getters and setters
-    public String getBreadType() {
-        return breadType;
-    }
-
-    public void setBreadType(String breadType) {
-        this.breadType = breadType;
-    }
-
-    public boolean isToasted() {
-        return isToasted;
-    }
-
-    public void setToasted(boolean toasted) {
-        isToasted = toasted;
-    }
-
-    public ArrayList<Topping> getSandwichToppings() {
-        return sandwichToppings;
-    }
-
-    public void setSandwichToppings(ArrayList<Topping> sandwichToppings) {
-        this.sandwichToppings = sandwichToppings;
-    }
-
-    public String getSide() {
-        return side;
-    }
-
-    public void setSide(String side) {
-        this.side = side;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     //Override method from orderItems interface
     @Override
@@ -73,33 +33,31 @@ public class Sandwich implements OrderItems {
         //TODO: implement this method
     }
 
-    // Menu addtopping
+    // Add Topping Menu
     public void addTopping() {
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("What type of toppings do you prefer ? Please choose from below options: ");
-        System.out.println("Meats: steak , ham, salami, roast beef, chicken , bacon (4\": $1, 8\": $2, 12\": $3)");
-        System.out.println("Extra meat: (4\": $0.50, 8\": $1.00, 12\": $1.50)");
-        System.out.println("Cheese: American,Provolone, Cheddar, Swiss (4\": $0.75, 8\": $1.50, 12\": $2.25)");
-        System.out.println("Extra Cheese: (4\": $0.30, 8\": $0.60, 12\": $0.90)");
-        System.out.println("Regular Toppings: Lettuce, Peppers, Onions, Tomatoes, Jalapenos, Cucumbers, Pickles, Guacamole, Mushrooms (Included)");
-        System.out.println("Sauces: Mayo, Mustard, Ketchup, Ranch, Thousand Islands , Vinaigrette (included)");
-        String userChoice = myScanner.nextLine();
+
+        //showToppingMenu(); //Calling the show topping menu helper method
+        System.out.println("Enter your choice...");
+        String userChoice = myScanner.nextLine().toLowerCase();
         switch (userChoice) {
-            case "steak", "ham", "salami", "roast beef", "chicken", "bacon": // I am checking for multiple values in a single case. User can choose any of the options
-            case "American", "Provolone", "Cheddar", "Swiss":
+            case "steak", "ham", "salami", "roast beef", "chicken",
+                 "bacon": // I am checking for multiple values in a single case. User can choose any of the options
+            case "american", "provolone", "cheddar", "swiss":
                 PremiumTopping myPT = new PremiumTopping(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
                 sandwichToppings.add(myPT); // adding the extra topping object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra Topping ? Type Y for yes and N for no");
+                System.out.println("Do you want extra "+userChoice +" ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
                     PremiumTopping myExtraPT = new PremiumTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
                     sandwichToppings.add(myExtraPT);
                 }
                 break;
-            case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms":
-            case "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette":
+            case "lettuce", "peppers", "onions", "tomatoes", "jalapenos", "cucumbers", "pickles", "guacamole",
+                 "mushrooms":
+            case "mayo", "mustard", "ketchup", "ranch", "thousand islands", "vinaigrette":
                 RegularTopping myRT = new RegularTopping(true, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
                 sandwichToppings.add(myRT); // adding the topping object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra Topping ? Type Y for yes and N for no");
+                System.out.println("Do you want extra "+userChoice +" ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
                     RegularTopping myExtraRT = new RegularTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
                     sandwichToppings.add(myExtraRT);
@@ -110,12 +68,26 @@ public class Sandwich implements OrderItems {
         }
     }
 
+    //Topping Menu method
+    public static void showToppingMenu() {
+        System.out.println("What type of toppings do you want ?");
+        System.out.println("Regular Toppings: Lettuce, Peppers, Onions, Tomatoes, Jalapenos, Cucumbers, Pickles, Guacamole, Mushrooms   (Included)");
+        System.out.println("Sauces: Mayo, Mustard, Ketchup, Ranch, Thousand Islands , Vinaigrette                                       (included)");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Meats: Steak , Ham, Salami, Roast Beef, Chicken , Bacon                            (Price: 4\": $1, 8\": $2, 12\": $3)");
+        System.out.println("Extra meat                                                                 (Price: 4\": $0.50, 8\": $1.00, 12\": $1.50)");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Cheese: American,Provolone, Cheddar, Swiss                                     (Price 4\": $0.75, 8\": $1.50, 12\": $2.25)");
+        System.out.println("Extra Cheese                                                              (Price : 4\": $0.30, 8\": $0.60, 12\": $0.90)");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------");
+    }
+
+    //Format the order details
     @Override
     public String toString() {
         String myText = size + " Inch";   //  storing the size in the variable myText
-        if(isToasted) myText += " Toasted"; // adding the word "toasted" to myText if isToasted is true
+        if (isToasted) myText += " Toasted"; // adding the word "toasted" to myText if isToasted is true
         myText += " " + breadType + " Sandwich with " + side + " Side" + ": $" + getPrice(); // Adding the rest of the text we want to display on the receipt
         return myText;
     }
 } //Size + breadType + toasted and side
-

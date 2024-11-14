@@ -43,9 +43,10 @@ public class Order {
         System.out.println("Au Jus, Sauce ");
         String sideChoice = myScanner.nextLine();
         Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
-
+        Sandwich.showToppingMenu();
+        mySandwich.addTopping(); //adding topping to the sandwich
         while(true) { //Loop to keep showing the menu to user
-            System.out.println("Do you want to add Toppings ? Type Y for Yes and N for No");
+            System.out.println("Do you want to add other Toppings ? Type Y for Yes and N for No");
             if(myScanner.nextLine().equals("Y")){
              mySandwich.addTopping(); //adding topping to the sandwich
             } else{ //If user say no more topping
