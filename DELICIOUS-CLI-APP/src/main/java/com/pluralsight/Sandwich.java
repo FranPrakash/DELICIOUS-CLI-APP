@@ -85,32 +85,28 @@ public class Sandwich implements OrderItems {
         System.out.println("Sauces: Mayo, Mustard, Ketchup, Ranch, Thousand Islands , Vinaigrette (included)");
         String userChoice = myScanner.nextLine();
         switch (userChoice) {
-            case "steak", "ham", "salami", "roast beef", "chicken",
-                 "bacon": // I am checking for multiple values in a single case. User can choose any of the options
-                break;
+            case "steak", "ham", "salami", "roast beef", "chicken", "bacon": // I am checking for multiple values in a single case. User can choose any of the options
             case "American", "Provolone", "Cheddar", "Swiss":
-                Cheese myChesse = new Cheese(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
-                sandwichToppings.add(myChesse); // adding the cheese object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra Cheese ? Type Y for yes and N for no");
+                PremiumTopping myPT = new PremiumTopping(false, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
+                sandwichToppings.add(myPT); // adding the extra topping object to the sandwich topping list because the list store object toppings
+                System.out.println("Do you want extra Topping ? Type Y for yes and N for no");
                 if (myScanner.nextLine().equals("Y")) {
-                    Cheese myExtraCheese = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
-                    sandwichToppings.add(myChesse);
+                    PremiumTopping myExtraPT = new PremiumTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
+                    sandwichToppings.add(myExtraPT);
                 }
                 break;
-            case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole",
-                 "Mushrooms":
-                RegularTopping myRt = new RegularTopping(true, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
-                sandwichToppings.add(myRt); // adding the topping object to the sandwich topping list because the list store object toppings
-                System.out.println("Do you want extra Cheese ? Type Y for yes and N for no");
-                if (myScanner.nextLine().equals("Y")) {
-                    Cheese myExtraCheese = new Cheese(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
-                    sandwichToppings.add(myRt);
-                }
-                break;
+            case "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms":
             case "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette":
+                RegularTopping myRT = new RegularTopping(true, userChoice, size); //Creating an object from the cheese class and adding it to the sandwich topping list
+                sandwichToppings.add(myRT); // adding the topping object to the sandwich topping list because the list store object toppings
+                System.out.println("Do you want extra Topping ? Type Y for yes and N for no");
+                if (myScanner.nextLine().equals("Y")) {
+                    RegularTopping myExtraRT = new RegularTopping(true, userChoice, size); //Parameters True because is true for extra cheese, userChoice type of cheese and size is the size of the bread
+                    sandwichToppings.add(myExtraRT);
+                }
+                break;
             default:
                 System.out.println("Invalid Option");
-
         }
     }
 

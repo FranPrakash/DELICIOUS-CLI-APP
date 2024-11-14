@@ -1,0 +1,4 @@
+---Order Details---
+SandwichbreadType='2' size=8 side='3' isToasted=false sandwichToppings=[]}
+Chip{type='2'}
+Order Total: $0.0

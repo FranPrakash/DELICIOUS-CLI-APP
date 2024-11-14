@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Order {
     //Array list to store user items choice. OrderItem is an interface that sandwich, chips and drinks implements, so I can Store object of those classes in a single list and I don't need top have 3 different list.
-   private static ArrayList<OrderItems> listOfItems; // Creating a variable of type array list of order items interface. <> type. It accepts object of classes that implemts the interface
+   private static ArrayList<OrderItems> listOfItems; // Creating a variable of type array list of order items interface. <> type. It accepts object of classes that implements the interface
 //this array list can store objects of class sandwich chips and drinks because the classes that implement the interface
 
    //Constructor
@@ -38,7 +38,7 @@ public class Order {
         } else {
             isToasted = false;
         }
-        System.out.println("Do you want a side? "); // I don't want a side
+        System.out.println("Do you want a side? ");
         System.out.println("(1) Au Jus, (2) Sauce, (3)No Side");
         String sideChoice = myScanner.nextLine();
         Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
