@@ -38,16 +38,21 @@ public class Order {
         } else {
             isToasted = false;
         }
+        //ask the user for side
         System.out.println("Do you want a side? ");
         System.out.println("Au Jus, Sauce, No Side");
         String sideChoice = myScanner.nextLine();
         Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
 
-
-        // TODO: Add toppings to the sandwich
-        // mySandwich.addTopping();
-
-        listOfItems.add(mySandwich);//Adding sandwich to list of item
+        while(true) { //Loop to keep showing the menu to user
+            System.out.println("Do you want to add Toppings ? Type Y for Yes and N for No");
+            if(myScanner.nextLine().equals("Y")){
+             mySandwich.addTopping(); //adding topping to the sandwich
+            } else{ //If user say no more topping
+                listOfItems.add(mySandwich);//Adding sandwich to list of item in the order
+                return; //ending the method execution
+            }
+        }
     }
 
     //Created method so I can call it depends on the user choice
