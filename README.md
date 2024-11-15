@@ -8,10 +8,10 @@ This app serves as a self ordering system for a sandwich shop similar to Subway 
 - User can choose Drink size and flavor
 - User can choose chips type
 - User can customize their Sandwich
-  - They can choose the bread type, size (4", 8" or 12") and sides
-  - They can also get the sandwich toasted
-  - They can add as many topping as they want
-  - They can add extra for any topping
+- They can choose the bread type, size (4", 8" or 12") and sides
+- They can also get the sandwich toasted
+- They can add as many topping as they want
+- They can add extra for any topping
 
 
 
