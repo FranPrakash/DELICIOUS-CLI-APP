@@ -3,4 +3,4 @@
 
 
 # Class Diagram
-![Class Diagram](/DELICIOUS-CLI-APP/Deli-cious.png)
+![Class Diagram](/DELICIOUS-CLI-APP/Deli-cious.jpeg)
