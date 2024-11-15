@@ -1,7 +1,7 @@
 # DELI-cious Deli App
 
 ## Project Details
-This app serves as a self ordering system for a sandwich shop similar to Subway or Ike's. The App has the following features
+This app works as a self-ordering system for a sandwich store, similar to Subway or Ike's. It includes the following features:
 - User can place an Order
 - User can add Sandwich, Chips or Drink to their order
 - User can order multiple items of same type
