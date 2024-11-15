@@ -1,7 +1,7 @@
 # DELI-cious Deli App
 
 ## Project Details
-This app serves as a self ordering system for a sandwich shop similar to Subway or Jersey Mike's. The App has the following features
+This app serves as a self ordering system for a sandwich shop similar to Subway or Ike's. The App has the following features
 - User can place an Order
 - User can add Sandwich, Chips or Drink to their order
 - User can order multiple items of same type
@@ -17,3 +17,14 @@ This app serves as a self ordering system for a sandwich shop similar to Subway 
 
 # Class Diagram
 ![Class Diagram](/DELICIOUS-CLI-APP/Deli-cious.jpeg)
+
+## An interesting piece of code 
+
+![listofitems](https://github.com/user-attachments/assets/e5ef329a-bb0b-4d53-ac34-c3fe0ce81cd8)
+
+#### I find it very interesting how I can use an interface as a type for an ArrayList. The ArrayList can then accepts any object from the classes that implement the interface. For example, it can store a sandwich object, a chip object or a drink objcet. It reduces the lines of code because I dont need to create many separate lists.
+
+
+## Here is an image of the OrderScreen
+
+![delicious1](https://github.com/user-attachments/assets/ce7b674b-848f-41e2-bf3f-178d566d32a4)
