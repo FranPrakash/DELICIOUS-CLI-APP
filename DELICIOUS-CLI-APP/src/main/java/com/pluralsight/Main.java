@@ -32,7 +32,6 @@ public class Main {
     }
 
     //OderScreen method to get user input to add sandwich drinks, checkout etc
-    //New order method created here because cant create an object of class inside the same class
     public static void showOrderScreen() {
         Order myOrder = new Order();//created my order object to store the list of items the user want in the order class array list.  Need an object to call the method
         Scanner myScanner = new Scanner(System.in);

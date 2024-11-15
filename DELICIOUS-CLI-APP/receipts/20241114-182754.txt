@@ -1,0 +1,6 @@
+---Order Details---
+8 Inch Toasted Rye Sandwich with Sauce Side: $12.0
+ -salami: $2.0
+ -Extra salami: $1.0
+ -ham: $2.0
+Order Total: $12.0

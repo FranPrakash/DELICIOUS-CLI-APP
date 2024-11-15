@@ -1,4 +1,5 @@
 package com.pluralsight;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.time.LocalDate;
@@ -10,16 +11,15 @@ import java.util.Scanner;
 //Class to store the content of the order
 
 public class Order {
-    //Array list to store user items choice. OrderItem is an interface that sandwich, chips and drinks implements, so I can Store object of those classes in a single list and I don't need top have 3 different list.
-   private static ArrayList<OrderItems> listOfItems; // Creating a variable of type array list of order items interface. <> type. It accepts object of classes that implements the interface
-//this array list can store objects of class sandwich chips and drinks because the classes that implement the interface
+    //  I can Store object of those classes in a single list and I don't need top have 3 different list.
+    private static ArrayList<OrderItems> listOfItems; // It accepts object of classes that implements the interface
 
-   //Constructor
+    //Constructor
     public Order() {
         listOfItems = new ArrayList<OrderItems>(); //initializing the array list in the constructor
     }
 
-    //Created method so I can call it depends on the user choice
+
     //Method to ask the user what type of sandwich he wants, based on the user input I create a sandwich object than add the sandwich object to the list of item
     public void addSandwich() {
         Scanner myScanner = new Scanner(System.in);
@@ -42,16 +42,20 @@ public class Order {
         System.out.println("Do you want a side? ");
         System.out.println("Au Jus, Sauce ");
         String sideChoice = myScanner.nextLine();
-        Sandwich mySandwich = new Sandwich(breadType,isToasted,sideChoice,sandwichSize);
-        Sandwich.showToppingMenu();
-        mySandwich.addTopping(); //adding topping to the sandwich
-        while(true) { //Loop to keep showing the menu to user
-            System.out.println("Do you want to add other Toppings ? Type Y for Yes and N for No");
-            if(myScanner.nextLine().equals("Y")){
-             mySandwich.addTopping(); //adding topping to the sandwich
-            } else{ //If user say no more topping
-                listOfItems.add(mySandwich);//Adding sandwich to list of item in the order
+        Sandwich mySandwich = new Sandwich(breadType, isToasted, sideChoice, sandwichSize); //My sandwich object
+
+        Sandwich.showToppingMenu(); //Calling topping menu method from sandwich class to prompt the user the topping options
+
+        //adding topping to the sandwich
+        while (true) { //Loop to keep showing the menu to user
+            //System.out.println("Do you want to add other Toppings ? Type Y for Yes and N for No");
+            System.out.println("Enter your topping choice. Enter N if you are done adding toppings.");
+            String userChoice = myScanner.nextLine().toLowerCase();
+            if (userChoice.equals("n")) {//If user say no more topping
+                listOfItems.add(mySandwich);//Adding sandwich object to list of item in the order
                 return; //ending the method execution
+            } else {
+                mySandwich.addTopping(userChoice); //adding topping to the sandwich
             }
         }
     }
@@ -67,7 +71,7 @@ public class Order {
         System.out.println("Small, Medium, Large");
         String drinkSize = myScanner.nextLine();
         Drink myDrink = new Drink(drinkFlavor, drinkSize); //Creating a drink object to add to listOfItems
-        listOfItems.add(myDrink); //Adding drink to list of item
+        listOfItems.add(myDrink); //Adding drink object to the list of item
     }
 
     //Method to ask the user what type of chip he wants, based on the user input I create a chip object than add the chip object to the list of item
@@ -80,14 +84,18 @@ public class Order {
         Chip myChip = new Chip(chipType); //Object to be added to the list of items
         listOfItems.add(myChip); //adding chips to list of items
     }
-    //Method to ask the user if he wants to confirm or cancel the order, if user chose to confirm the printReceipt method is called else user has chosen to cancel the order
+
+    //Osmig help
+    //Method confirm or cancel the order, if user chose to confirm the printReceipt method is called else user has chosen to cancel the order
     public void checkOut() {
         System.out.println(getOrderDetails()); //printing the order details by calling the method show order details
         Scanner myScanner = new Scanner(System.in); //get the user input
         System.out.println("Is everything right? Type C to confirm the order or X to Cancel the Order");
         String userChoice = myScanner.nextLine();
         if (userChoice.equals("C")) {
-            printReceipt(); //call the method printReceipt to confirm the order which will print the receipt if user confirm the order
+            //call the method printReceipt to confirm the order which will print the receipt if user confirm the order
+            printReceipt();
+
         } else {
             listOfItems = null; //Making the list of items empty
             System.out.println("Your order has been canceled!");
@@ -95,8 +103,8 @@ public class Order {
     }
 
     //Osmig help
-   //Method Confirm - create the receipt file and go back to the home screen
-    public static void printReceipt(){
+    //Method Confirm - create the receipt file and go back to the home screen
+    public static void printReceipt() {
         String date = String.valueOf(LocalDate.now()); //Get current date format YYYY-MM-DD
         String time = String.valueOf(LocalTime.now().truncatedTo(ChronoUnit.SECONDS)); //Get current time  hhmmssml -> hhmmss (took away mlsecs)
 
@@ -105,23 +113,23 @@ public class Order {
         // Capstone format  yyyyMMdddd-hhmmss.txt
 
         String fileName = date + "-" + time + ".txt";// combining the way the capstone asked to create the file name
-       try {
-           BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/"+ fileName)); // fileName is the name of the file inside eof the folder receipts
+        try {
+            BufferedWriter myBw = new BufferedWriter(new FileWriter("receipts/" + fileName)); // fileName is the name of the file inside eof the folder receipts
             // receipts/yyyyMMdddd-hhmmss.txt //Filewriter specify the file im writing to.
-           myBw.write(getOrderDetails()); // write to the file calling the order details method that returns order info
-           myBw.close(); // needs to close after done
-       } catch (Exception e) {
-           System.out.println("An error occurred");
-           e.printStackTrace(); //Display error
-       }
+            // write to the file calling the order details method that returns order info
+            myBw.write(getOrderDetails());
+            myBw.close(); // needs to close after done
+        } catch (Exception e) {
+            System.out.println("An error occurred");
+            e.printStackTrace(); //Display error
+        }
     }
 
-    //This method will return the list of items and their prices and total order amount
-    //For each loop to loop in the list of items to get the items details one by one
+    //This method will return the list of items, price and total order. Like what type of sandwich and drinks and how much it costs
     public static String getOrderDetails() {
-        String orderDetails ="---Order Details---\n";
-        for(OrderItems item: listOfItems){ // for each item in list of items (order items type of array list)
-            orderDetails += item +"\n"; //adding item to the orderDetails variable
+        String orderDetails = "---Order Details---\n";
+        for (OrderItems item : listOfItems) { //For each loop to loop in the list of items to get the items details one by one // for each item in list of items (order items type of array list)
+            orderDetails += item + "\n"; //adding item to the orderDetails variable
         }
         orderDetails += "Order Total: $" + getOrderTotal();
         return orderDetails;
@@ -131,20 +139,19 @@ public class Order {
     private static double getOrderTotal() {
         double orderTotal = 0;
         // for each item in the order
-        for(OrderItems item: listOfItems){
+        for (OrderItems item : listOfItems) {
             orderTotal += item.getPrice(); // add the price to the order total
         }
         return orderTotal;
     }
 
+    //Print order details in a nice way
     @Override
     public String toString() { //Display the order details in a nice way
         return getOrderDetails();
     }
 
 }
-
-
 
 //TODO:Create a method to display the total cost of the order.
 //TODO: When the customer completes the order, the order details should be saved to a
